@@ -1,14 +1,14 @@
 const mysql = require('mysql');
 const { promisify }= require('util');
 
-const { database } = require('./keys');
-var connection = mysql.createConnection(database);
+const { database } = require('./keys'); // importo archivo database
+var connection = mysql.createConnection(database); //crea coneccion
 
 connection.query = promisify(connection.query);
 
 module.exports = connection;
 
-//const pool = mysql.createPool(database);
+//const pool = mysql.createPool(database); original
 
 /*pool.getConnection((err, connection) => {
   if (err) {
@@ -22,11 +22,11 @@ module.exports = connection;
       console.error('Database connection was refused');
     }
   }
-
-  if (connection) connection.release();
+if (connection) connection.release();
   console.log('DB is Connected');
 
   return;
+  
 });*/
 
 // Promisify Pool Querys

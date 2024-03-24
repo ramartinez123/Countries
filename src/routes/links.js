@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const connection = require ('../database');
-//const connectDB = require('../database');
+const {isLoggedIn} = require('../lib/auth');
+
 
 
 router.get('/add', (req,res) =>{
@@ -9,20 +10,21 @@ router.get('/add', (req,res) =>{
 });
 
 router.post('/add', async (req,res) =>{
-    const{country,capital,population,continent} = req.body;
-    const newcountry ={
+    const{country,capital,population,continent} = req.body; //req.body recive datos prop objeto
+    const newcountry ={  //guardo en un nuevo objeto
         country,
         capital,
         population,
-        continent
+        continent,
+        user_id: req.user.id
     };
-   await connection.query('INSERT INTO country set?',[newcountry]);
+   await connection.query('INSERT INTO country set?',[newcountry]);// va a tomar tiempo cuando termine sigue con otroa
    res.redirect('/links/list');
 
 })
 
 router.get('/list', async (req,res) =>{
-    const consul =await connection.query('SELECT * FROM country');
+    const consul =await connection.query('SELECT * FROM country WHERE user_id = ?', [req.user.id]);
     console.log(consul);
     res.render('links/list', {consul});
 });
@@ -31,7 +33,7 @@ router.get('/list', async (req,res) =>{
 router.get('/delete/:id', async (req, res) => {
     const { id } = req.params;
     await connection.query('DELETE FROM country WHERE ID = ?', [id]);
-    req.flash('success', 'Link Removed Successfully');
+    req.flash('success', 'Link Removed Successfully'); // nombre valor
     res.redirect('/links/list');
 });
 

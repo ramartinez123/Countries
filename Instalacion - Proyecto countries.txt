@@ -1,0 +1,25 @@
+Instalar
+
+npm init --yes // pacha Json configuracion
+npm i express express-handlebares express-session mysql express-mysql-session morgan(peti servidor) bcryptjs(cifrar contraseñas) passport passport-local timeagojs connect-flash express-validator(validar datos) nodemon-D
+
+npm run dev
+
+Pasos
+Crear carpetas src y estructuras mkdir nombre nombre
+ index.js (arranca)
+ routes -> index.js (comienzo)
+ database.js (tiene la conexion)
+ keys.js (claves)
+ routes -> links.js (enlaces)
+ views -> links (fron)
+ views -> layouts -> main (fron)
+ views -> links -> add (fron)
+ views -> partials -> navigation (fron)
+ views -> links -> list (fron)
+ views -> links -> edit (fron)
+ views -> partials -> message (fron)
+ routes -> authentication.js (enlaces)
+ views -> auth -> signup (fron)
+ lib -> passport
+ lib -> helpers	
