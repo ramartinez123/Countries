@@ -23,3 +23,4 @@ Crear carpetas src y estructuras mkdir nombre nombre
  views -> auth -> signup (fron)
  lib -> passport
  lib -> helpers	
+ views -> auth -> signin (fron)

@@ -1,13 +1,13 @@
 const express = require('express');
 const router = express.Router();
 const passport = require('passport');
-const {isLoggedIn} = require('../lib/auth');
+const {isLoggedIn, isNotLoggedIn} = require('../lib/auth');
 
 //const passport = require('passport');
 //const { isLoggedIn } = require('../lib/auth');
 
 // SIGNUP
-router.get('/signup', (req, res) => {  //randerizar 
+router.get('/signup', isNotLoggedIn, (req, res) => {  //randerizar 
   res.render('auth/signup');
 });
 
