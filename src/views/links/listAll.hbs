@@ -1,6 +1,6 @@
 <div class="container p-4">
     <div class="row">
-        {{#each consul}}
+        {{#each consulAll}}
         <div class="col-md-3">
             <div class="card text-center">
                 <div class="card-body">
@@ -11,8 +11,7 @@
                     </a>
                     <p class="m-2">{{capital}}</p>
                     <p class="text-muted">{{timeago created_at}}</p>
-                    <a class="btn btn-danger" href="/links/delete/{{id}}">Delete </a>
-                    <a class="btn btn-secondary" href="/links/edit/{{id}}">Edit</a>
+                    <a class="btn btn-secondary" href="/links/addCountry/{{id}}">Add Card</a>
                 </div>
             </div>
         </div>
