@@ -23,7 +23,7 @@ router.get('/listAll', async (req,res) =>{
 router.get('/delete/:id', async (req, res) => {
     const { id } = req.params;
     await connection.query('DELETE FROM country WHERE ID = ?', [id]);
-    req.flash('success', 'Link Removed Successfully'); // nombre valor
+    req.flash('success', 'Card Removed Successfully'); // nombre valor
     res.redirect('/links/list');
 });
 
@@ -39,8 +39,8 @@ router.get('/addCountry/:id', async (req, res) => {
         user_id: req.user.id
     };
     connection.query('INSERT INTO country set?',[newCountry]);
-    req.flash('success', ' Updated Successfully');
-    res.redirect('/links/list');
+    req.flash('success', ' Added Successfully');
+    res.redirect('/links/listAll');
 
 });
 
