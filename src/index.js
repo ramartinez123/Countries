@@ -1,6 +1,7 @@
 // Idem sin Babel
 const express = require('express');
 const {engine} = require('express-handlebars');
+const {body, validationResult} = require('express-validator');
 const path = require('path');
 const morgan = require('morgan');
 const flash = require('connect-flash');
@@ -8,7 +9,6 @@ const session = require('express-session');
 const MySQLStore = require('express-mysql-session')(session);
 const passport = require('passport');
 const {database} = require('./keys');
-
 
 //initializations
 const app = express();
@@ -42,9 +42,7 @@ app.use(flash());
 app.use(express.json()); // recepcion json
 app.use(passport.initialize());
 app.use(passport.session());
-
-
-
+//app.use(query());
 
 //Global variables
 app.use((req,res,next) =>{

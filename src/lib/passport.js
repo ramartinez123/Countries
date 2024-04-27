@@ -4,7 +4,6 @@ const LocalStrategy = require('passport-local').Strategy;
 const connection = require('../database');
 const helpers = require('./helpers');
 
-
 passport.use('local.signin', new LocalStrategy({
     usernameField: 'username',
     passwordField: 'password',
