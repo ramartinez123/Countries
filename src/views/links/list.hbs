@@ -1,34 +1,36 @@
 <div class="container p-4">
     <div class="row">
         {{#each consul}}
-        <div class="col-md-3">
-           <div class="card border-dark mb-3">
-                <div class="card-header text-primary border-dark  text-center">
-                   <h3 class="card-title text-uppercase">
+        <div class="col-md-4 mb-4">
+            <div class="card border-dark h-100">
+                <div class="card-header text-primary border-dark text-center">
+                    <h3 class="card-title text-uppercase mb-0">
                         {{country}}
                     </h3>
                 </div>
                 <div class="card-body">
-                    <p class="m-2">Capital: {{capital}}</p>
-                    <p class="m-2">Population: {{getFormat population}}</p> 
-                    <p class="m-2">Continent: {{continent}}</p>   
+                    <p class="m-2"><i class="bi bi-building"></i> Capital: {{capital}}</p>
+                    <p class="m-2"><i class="bi bi-people"></i> Population: {{getFormat population}}</p>
+                    <p class="m-2"><i class="bi bi-globe"></i> Continent: {{continent}}</p>
+
                 </div>
-                <div class=" footer-center text-center mb-2 mt-0">
-                    <p class="text-muted">{{timeago created_at}}</p>
-                    <a class="btn btn-danger" href="/links/delete/{{id}}">Delete </a>
+                <div class="card-footer text-center">
+                    <p class="text-muted mb-2">{{timeago created_at}}</p>
+                    <a class="btn btn-danger" href="/links/delete/{{id}}">
+                        <i class="bi bi-trash"></i> Delete
+                    </a>
                 </div>
             </div>
         </div>
-        
         {{else}}
-
-        <div class="col-md-4 mx-auto">
+        <div class="col-md-6 mx-auto">
             <div class="card card-body text-center">
-                <p>There are not cards saved yet.</p>
-                <a href="/links/listAll">Choose One!</a>
+                <p><i class="bi bi-info-circle"></i> There are no cards saved yet.</p>
+                <a class="btn btn-primary" href="/links/listAll">
+                    <i class="bi bi-list"></i> Choose One!
+                </a>
             </div>
         </div>
-
         {{/each}}
     </div>
 </div>

@@ -1,33 +1,40 @@
-<div class="container p-4">
-    <div class="row">
-        {{#each consulAll}}
-        <div class="col-md-3">
-            <div class="card border-dark mb-3">
-                <div class="card-header text-primary border-dark  text-center">
-                   <h3 class="card-title text-uppercase">
-                        {{country}}
-                    </h3>
-                </div>
-                <div class="card-body">
-                    <p class="m-2">Capital: {{capital}}</p>
-                    <p class="m-2">Population: {{getFormat population}}</p>                   
-                    <p class="m-2">Continent: {{continent}}</p>              
-                </div>
-                <div class=" footer-center text-center mb-2">
-                    <a class="btn btn-success " href="/links/addCountry/{{id}}">Add Card</a>
+<body>
+
+    <div class="container p-4">
+        <div class="row">
+            {{#each consulAll}}
+            <div class="col-md-4 mb-4">
+                <div class="card border-dark h-100">
+                    <div class="card-header text-primary border-dark text-center">
+                        <h3 class="card-title text-uppercase">
+                            {{country}}
+                        </h3>
+                    </div>
+                    <div class="card-body">
+                        <p class="m-2"><i class="bi bi-building"></i> Capital: {{capital}}</p>
+                        <p class="m-2"><i class="bi bi-people"></i> Population: {{getFormat population}}</p>
+                        <p class="m-2"><i class="bi bi-globe"></i> Continent: {{continent}}</p>
+                    </div>
+                    <div class="card-footer text-center">
+                        <a class="btn btn-success btn-sm" href="/links/addCountry/{{id}}">
+                            <i class="bi bi-plus-circle"></i> Add Card
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
-        
-        {{else}}
 
-        <div class="col-md-4 mx-auto">
-            <div class="card card-body text-center">
-                <p>There are not Links saved yet.</p>
-                <a href="/links/add">Create One!</a>
+            {{else}}
+            <div class="col-md-6 mx-auto">
+                <div class="card card-body text-center">
+                    <p><i class="bi bi-info-circle"></i> There are no links saved yet.</p>
+                    <a class="btn btn-primary" href="/links/add">
+                        <i class="bi bi-plus-circle"></i> Create One!
+                    </a>
+                </div>
             </div>
+            {{/each}}
         </div>
-
-        {{/each}}
     </div>
-</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+</body>

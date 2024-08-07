@@ -1,35 +1,42 @@
-<div class="container p-4">
-    <div class="row">
-        <div class="col-md-4 mx-auto">
-            <div class="card ">
-                <div class="card-body">
-                    <form action="/links/add" method="POST">
-                        <div class="form-group">
-                            <input type="text" class="form-control" name="country" placeholder="country" autofocus>
-                        </div>
+<body>
 
-                        <div class="form-group">
-                            <input type="text" class="form-control" name="capital" placeholder="capital">
-                        </div>
+    <div class="container p-4">
+        <div class="row">
+            <div class="col-md-8 mx-auto">
+                <div class="card border-primary">
+                    <div class="card-body">
+                        <h3 class="card-title mb-4 text-center">Add a New Country</h3>
+                        <form action="/links/add" method="POST">
+                            <div class="form-group">
+                                <label for="country">Country <i class="bi bi-globe2"></i></label>
+                                <input type="text" class="form-control" id="country" name="country"
+                                    placeholder="Country" autofocus required>
+                            </div>
 
-                        <div class="form-group">
-                            <input type="text" class="form-control" name="populatiom" placeholder="population">
-                        </div>
+                            <div class="form-group">
+                                <label for="capital">Capital <i class="bi bi-building"></i></label>
+                                <input type="text" class="form-control" id="capital" name="capital"
+                                    placeholder="Capital" required>
+                            </div>
 
-                        <div class="form-group">
-                            <input type="text" class="form-control" name="continent" placeholder="continent ">
-                        </div>
+                            <div class="form-group">
+                                <label for="population">Population <i class="bi bi-people"></i></label>
+                                <input type="number" class="form-control" id="population" name="population"
+                                    placeholder="Population" required>
+                            </div>
 
-                        <div class="form-group">
-                            <button class="btn btn-success"> Save </button>
-                        </div>
+                            <div class="form-group">
+                                <label for="continent">Continent <i class="bi bi-globe"></i></label>
+                                <input type="text" class="form-control" id="continent" name="continent"
+                                    placeholder="Continent" required>
+                            </div>
 
-                    </form>
-
+                            <button type="submit" class="btn btn-success btn-block">Save</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
-</div>
+</body>

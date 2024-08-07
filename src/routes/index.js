@@ -1,5 +1,5 @@
 const express = require('express');
-const router = express.Router(); // crea objeto
+const router = express.Router(); 
 
 router.get('/', async (req,res) =>{
     res.redirect('signin');

@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-success">
   <div class="container">
     <a class="navbar-brand" href="/">
-      <i class="fas fa-link"></i> Countries
+      <i class="fas fa-globe-americas"></i> Countries
     </a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
@@ -14,26 +14,40 @@
         {{#if user}}
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false"> Cards </a>
+            aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-id-card"></i> Cards
+          </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="/links/listAll">All Cards</a>
-            <a class="dropdown-item" href="/links/list">My cards</a>
+            <a class="dropdown-item" href="/links/listAll">
+              <i class="fas fa-list"></i> All Cards
+            </a>
+            <a class="dropdown-item" href="/links/list">
+              <i class="fas fa-user-card"></i> My Cards
+            </a>
           </div>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="/profile">Profile</a>
+          <a class="nav-link" href="/profile">
+            <i class="fas fa-user"></i> Profile
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/logout">Logout</a>
+          <a class="nav-link" href="/logout">
+            <i class="fas fa-sign-out-alt"></i> Logout
+          </a>
         </li>
 
         {{else}}
         <li class="nav-item">
-          <a class="nav-link" href="/signin">Sign In</a>
+          <a class="nav-link" href="/signin">
+            <i class="fas fa-sign-in-alt"></i> Sign In
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/signup">Sign Up</a>
+          <a class="nav-link" href="/signup">
+            <i class="fas fa-user-plus"></i> Sign Up
+          </a>
         </li>
         {{/if}}
 
