@@ -87,6 +87,26 @@ router.get('/delete/:id', isLoggedIn, async (req, res) => {
     }
 });
 
+router.get('/deleteCountry/:id', isLoggedIn, async (req, res) => {
+    
+    try {
+        const { id } = req.params;
+        // Asegúrate de que id es un número entero
+        if (isNaN(id) || !Number.isInteger(parseInt(id))) {
+            req.flash('error', 'Debe ingresar un numero');
+            return res.redirect('/links/listAll');
+        }
+    
+        await connection.query('DELETE FROM countries WHERE ID = ?', [id]);
+        req.flash('success', 'Tarjeta borrada correctamente');
+        res.redirect('/links/listAll');
+    } catch (error) {
+        console.error('Error deleting country:', error);
+        req.flash('error', 'Error al borrar la tarjeta');
+        res.redirect('/links/listAll');
+    }
+});
+
 // Agrega un país a la lista del usuario autenticado
 router.get('/addCountry/:id', isLoggedIn, async (req, res) => {
     try {
@@ -126,36 +146,3 @@ router.get('/addCountry/:id', isLoggedIn, async (req, res) => {
 
 module.exports = router;
 
-/*router.get('/edit/:id', async (req, res) => {
-    const { id } = req.params;
-    const consul = await connection.query('SELECT * FROM country WHERE id = ?', [id]);
-    res.render('links/edit', {consul: consul[0]});
-});
-
-router.post('/edit/:id', async (req, res) => {
-    const { id } = req.params;
-    const { country, capital, population, continent} = req.body; 
-    const newLink = {
-        country,
-        capital,
-        population,
-        continent
-    };
-    await connection.query('UPDATE country set ? WHERE id = ?', [newLink, id]);
-    req.flash('success', ' Updated Successfully');
-    res.redirect('/links/list');
-});*/
-
-/*router.post('/add', async (req,res) =>{
-    const{country,capital,population,continent} = req.body; //req.body recive datos prop objeto
-    const newcountry ={  //guardo en un nuevo objeto
-        country,
-        capital,
-        population,
-        continent,
-        user_id: req.user.id
-    };
-   await connection.query('INSERT INTO country set?',[newcountry]);// va a tomar tiempo cuando termine sigue con otroa
-   res.redirect('/links/list');
-
-})*/
